@@ -6,15 +6,37 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  ImageBackground,
 } from "react-native";
 
 export default function HomeScreen() {
-  return <ScrollView contentContainerStyle={styles.container}></ScrollView>;
+  return (
+    <ImageBackground style={styles.background}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.text}>
+          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
+          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
+          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
+          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
+          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
+          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
+          EDIT ME!
+        </Text>
+      </ScrollView>
+    </ImageBackground>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    marginHorizontal: 20,
+  },
+  text: {
+    color: "white",
+    fontSize: 42,
+  },
+  background: {
     backgroundColor: "black",
+    flexGrow: 1,
   },
 });
