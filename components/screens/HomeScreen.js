@@ -8,21 +8,13 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import Header from "../elements/Header";
 
 export default function HomeScreen() {
   return (
     <ImageBackground style={styles.background}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.text}>
-          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
-          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
-          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
-          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
-          EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT
-          ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME! EDIT ME!
-          EDIT ME!
-        </Text>
-      </ScrollView>
+      <Header shouldHideButton={true} />
+      <ScrollView contentContainerStyle={styles.container}></ScrollView>
     </ImageBackground>
   );
 }
@@ -30,10 +22,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
-  },
-  text: {
-    color: "white",
-    fontSize: 42,
   },
   background: {
     backgroundColor: "black",
