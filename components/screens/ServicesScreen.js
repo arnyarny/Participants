@@ -13,7 +13,7 @@ import Header from "../elements/Header";
 export default function ServicesScreen({ navigation }) {
   return (
     <ImageBackground style={styles.background}>
-      <Header />
+      <Header shouldHideButton={true} />
       <ScrollView contentContainerStyle={styles.container}></ScrollView>
     </ImageBackground>
   );

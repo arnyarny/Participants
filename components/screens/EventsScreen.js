@@ -24,7 +24,6 @@ export default function EventsScreen({ navigation }) {
           value={searchQuery}
           style={styles.searchBar}
         />
-        {/* <MyCarousel /> */}
       </ScrollView>
     </ImageBackground>
   );

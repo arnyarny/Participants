@@ -10,7 +10,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNavigation({ navigation }) {
+export default function TabNavigation() {
   return (
     <NavigationContainer>
       <Tab.Navigator

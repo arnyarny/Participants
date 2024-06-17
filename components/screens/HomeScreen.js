@@ -13,7 +13,7 @@ import Header from "../elements/Header";
 export default function HomeScreen() {
   return (
     <ImageBackground style={styles.background}>
-      <Header />
+      <Header shouldHideButton={true} />
       <ScrollView contentContainerStyle={styles.container}></ScrollView>
     </ImageBackground>
   );

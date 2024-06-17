@@ -2,19 +2,21 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default function Header() {
+export default function Header({ navigation, shouldHideButton }) {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.openDrawer()}
-          style={styles.iconButton}
-        >
-          <MaterialCommunityIcons name="menu" size={24} color="white" />
-        </TouchableOpacity>
+        {!shouldHideButton && (
+          <TouchableOpacity
+            onPress={() => navigation.openDrawer()}
+            style={styles.iconButton}
+          >
+            <MaterialCommunityIcons name="menu" size={24} color="white" />
+          </TouchableOpacity>
+        )}
         <Image
           source={require("../pictures/eventwise.png")}
-          style={styles.logo}
+          style={[styles.logo, shouldHideButton && { marginLeft: -130 }]}
           resizeMode="contain"
         />
         <TouchableOpacity
