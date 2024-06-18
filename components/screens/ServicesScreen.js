@@ -8,13 +8,13 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import Header from "../elements/Header";
 
 export default function ServicesScreen({ navigation }) {
   return (
     <ImageBackground style={styles.background}>
-      <Header shouldHideButton={true} />
-      <ScrollView contentContainerStyle={styles.container}></ScrollView>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.text}>s</Text>
+      </ScrollView>
     </ImageBackground>
   );
 }
@@ -27,4 +27,5 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
+  text: { color: "white" },
 });

@@ -1,19 +1,17 @@
-import React from "react";
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  Image,
   ImageBackground,
+  ScrollView,
 } from "react-native";
+import React from "react";
 
-export default function AboutScreen() {
+export default function JoinedEventsScreen() {
   return (
     <ImageBackground style={styles.background}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.text}>a</Text>
+        <Text style={styles.text}>JOINED EVENTS</Text>
       </ScrollView>
     </ImageBackground>
   );
@@ -27,5 +25,5 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
-  text: { color: "white" },
+  text: { color: "white", fontSize: 25, marginTop: 30, fontWeight: "700" },
 });

@@ -1,20 +1,16 @@
-import React from "react";
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  Image,
   ImageBackground,
+  ScrollView,
 } from "react-native";
+import React from "react";
 
-export default function AboutScreen() {
+export default function CalendarScreen() {
   return (
     <ImageBackground style={styles.background}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.text}>a</Text>
-      </ScrollView>
+      <ScrollView contentContainerStyle={styles.container}></ScrollView>
     </ImageBackground>
   );
 }
@@ -27,5 +23,4 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
-  text: { color: "white" },
 });

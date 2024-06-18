@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   Image,
   ImageBackground,
@@ -11,12 +10,19 @@ import {
   searchQuery,
 } from "react-native";
 import { Searchbar } from "react-native-paper";
-import Header from "../elements/Header";
+import ImageCards from "../elements/ImageCards";
+import CarouselView from "../elements/CarouselView";
 
-export default function EventsScreen({ navigation }) {
+export default function EventsScreen() {
+  const renderItem = ({ item }) => (
+    <View>
+      <Image source={item.image} />
+      <Text>{item.title}</Text>
+    </View>
+  );
+
   return (
     <ImageBackground style={styles.background}>
-      <Header />
       <ScrollView contentContainerStyle={styles.container}>
         <Searchbar
           placeholder="Search Event"
@@ -24,6 +30,9 @@ export default function EventsScreen({ navigation }) {
           value={searchQuery}
           style={styles.searchBar}
         />
+        <CarouselView />
+        <Text style={styles.title}>EVENTS</Text>
+        <ImageCards />
       </ScrollView>
     </ImageBackground>
   );
@@ -37,5 +46,11 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
-  searchBar: { marginTop: 10 },
+  searchBar: { marginTop: 10, marginBottom: 20 },
+  title: {
+    color: "#FFC42B",
+    fontSize: 25,
+    fontWeight: "700",
+    marginBottom: 20,
+  },
 });
