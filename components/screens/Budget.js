@@ -6,7 +6,7 @@ import {
   View,
   Button,
   ScrollView,
-  Image,
+  ImageBackground,
 } from "react-native";
 
 const Budget = () => {
@@ -35,26 +35,8 @@ const Budget = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.navBarContainer}>
-        <Image
-          source={{
-            uri: "https://img.icons8.com/material-outlined/24/ffffff/menu--v3.png",
-          }}
-          style={styles.menuIcon}
-        />
-        <Text style={styles.navBarText}>
-          <Text style={styles.navBarTextBold}>Event</Text>Wise
-        </Text>
-        <Image
-          source={{
-            uri: "https://img.icons8.com/material-outlined/24/ffffff/user--v1.png",
-          }}
-          style={styles.userIcon}
-        />
-      </View>
-
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <ImageBackground style={styles.background}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.budgetContainer}>
           <View style={styles.budgetHeader}>
             <Text style={styles.budgetTitle}>Wedding Budget</Text>
@@ -74,7 +56,6 @@ const Budget = () => {
               onPress={() => {}}
             />
           </View>
-
           <View style={styles.expenses}>
             <Text style={styles.sectionTitle}>Expenses</Text>
             {Object.keys(expenses).map((key) => (
@@ -113,22 +94,17 @@ const Budget = () => {
           <Button title="Submit" color="#FFC700" onPress={() => {}} />
         </View>
       </ScrollView>
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#121212",
+    marginHorizontal: 20,
   },
-  navBarContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#000",
-    padding: 10,
+  background: {
+    backgroundColor: "black",
+    flexGrow: 1,
   },
   menuIcon: {
     width: 24,
@@ -147,17 +123,10 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
   },
-  scrollContainer: {
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
   budgetContainer: {
     width: "100%",
-    backgroundColor: "#1E1E1E",
     padding: 20,
-    borderRadius: 10,
+    paddingBottom: 90,
   },
   budgetHeader: {
     marginBottom: 20,

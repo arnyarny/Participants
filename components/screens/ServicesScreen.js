@@ -8,10 +8,17 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import CustomHeader from "../elements/CustomHeader";
 
 export default function ServicesScreen({ navigation }) {
   return (
     <ImageBackground style={styles.background}>
+      <View style={styles.screenContainer}>
+        <CustomHeader
+          title="Your Screen Title"
+          onBackPress={() => navigation.goBack()}
+        />
+      </View>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.text}>s</Text>
       </ScrollView>

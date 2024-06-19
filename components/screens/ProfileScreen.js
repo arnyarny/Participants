@@ -9,50 +9,56 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import CustomHeader from "../elements/CustomHeader";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.profileContainer}>
-        <ImageBackground
-          source={require("../pictures/Wallpaper.png")} // Update this path if necessary
-          style={styles.backgroundImage}
-        ></ImageBackground>
-        <View style={styles.photoContainer}>
-          <Button title="+" onPress={() => {}} style={styles.addPhotoButton} />
-        </View>
-        <Text style={styles.serviceProviderName}>Service Provider Name</Text>
-        <Text style={styles.address}>Event Service Provider Address</Text>
-        <View style={styles.timeContainer}>
-          <Text style={styles.timeText}>Open: 06:00 am</Text>
-          <Text style={styles.timeText}>Close: 09:00 pm</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.buttonText}>Edit Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.logoutButton}>
-            <Text style={styles.buttonText}>Logout</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <Text style={styles.popularEventsTitle}>Popular Events</Text>
-      <ScrollView horizontal style={styles.eventsContainer}>
-        {events.map((event, index) => (
-          <View key={index} style={styles.eventCard}>
-            <View style={styles.eventImageContainer}>
-              <Image source={{ uri: event.image }} style={styles.eventImage} />
-              <TouchableOpacity style={styles.addEventButton}>
-                <Text style={styles.addEventButtonText}>+</Text>
-              </TouchableOpacity>
-            </View>
-            <Text style={styles.eventTitle}>{event.title}</Text>
-            <Text style={styles.eventDate}>{event.date}</Text>
-            <Text style={styles.eventLocation}>{event.location}</Text>
+    <ImageBackground style={styles.background}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.profileContainer}>
+          <View style={styles.photoContainer}>
+            <Button
+              title="+"
+              onPress={() => {}}
+              style={styles.addPhotoButton}
+            />
           </View>
-        ))}
+          <Text style={styles.serviceProviderName}>Service Provider Name</Text>
+          <Text style={styles.address}>Event Service Provider Address</Text>
+          <View style={styles.timeContainer}>
+            <Text style={styles.timeText}>Open: 06:00 am</Text>
+            <Text style={styles.timeText}>Close: 09:00 pm</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.editButton}>
+              <Text style={styles.buttonText}>Edit Profile</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.logoutButton}>
+              <Text style={styles.buttonText}>Logout</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <Text style={styles.popularEventsTitle}>Popular Events</Text>
+        <ScrollView horizontal style={styles.eventsContainer}>
+          {events.map((event, index) => (
+            <View key={index} style={styles.eventCard}>
+              <View style={styles.eventImageContainer}>
+                <Image
+                  source={{ uri: event.image }}
+                  style={styles.eventImage}
+                />
+                <TouchableOpacity style={styles.addEventButton}>
+                  <Text style={styles.addEventButtonText}>+</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.eventTitle}>{event.title}</Text>
+              <Text style={styles.eventDate}>{event.date}</Text>
+              <Text style={styles.eventLocation}>{event.location}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </ScrollView>
-    </ScrollView>
+    </ImageBackground>
   );
 };
 
@@ -91,9 +97,11 @@ const events = [
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#000000", // Background color matching the design
     padding: 20,
+  },
+  background: {
+    backgroundColor: "black",
+    flexGrow: 1,
   },
   profileContainer: {
     backgroundColor: "#FFC700",
@@ -103,7 +111,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   backgroundImage: {
-    flex: 1,
     resizeMode: "cover",
   },
   photoContainer: {
