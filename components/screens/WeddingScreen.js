@@ -9,23 +9,15 @@ import {
 } from "react-native";
 import { Searchbar } from "react-native-paper";
 import CarouselView from "../elements/CarouselView"; // Assuming this is a date selector carousel
-import ImageCards from "../elements/ImageCards"; // Assuming these are cards for events on selected dates
 import { useNavigation } from "@react-navigation/native";
 import CustomHeader from "../elements/CustomHeader";
+import Cards from "../elements/Cards";
 
-export default function EventsScreen() {
+export default function WeddingScreen() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState("");
 
   const onChangeSearch = (query) => setSearchQuery(query);
-
-  // Placeholder function to handle date selection or any other calendar actions
-
-  const buttons = [
-    { title: "Events", screen: "EventsStack" },
-    { title: "Calendar", screen: "Calendar" },
-    { title: "Joined Events", screen: "JoinedEvents" },
-  ];
 
   const handlePress = (screen) => {
     navigation.navigate(screen, {
@@ -36,34 +28,15 @@ export default function EventsScreen() {
 
   return (
     <ImageBackground style={styles.background}>
-      <View style={styles.screenContainer}>
-        <CustomHeader onBackPress={() => navigation.goBack()} />
+      <View>
+        <CustomHeader
+          showBackButton={true}
+          onBackPress={() => navigation.goBack()}
+        />
       </View>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.buttonContainer}>
-          {buttons.map((button) => (
-            <TouchableOpacity
-              key={button.screen}
-              style={[
-                styles.button,
-                navigation.getState().routes[navigation.getState().index]
-                  .name === button.screen
-                  ? styles.activeButton
-                  : styles.inactiveButton,
-              ]}
-              onPress={() => handlePress(button.screen)}
-            >
-              <Text
-                style={[
-                  styles.buttonText,
-                  navigation.getState().routes[navigation.getState().index]
-                    .name === button.screen && styles.activeButtonText,
-                ]}
-              >
-                {button.title}
-              </Text>
-            </TouchableOpacity>
-          ))}
+          <Text style={styles.title}>WEDDINGS</Text>
         </View>
         <Searchbar
           placeholder="Search Events"
@@ -72,8 +45,7 @@ export default function EventsScreen() {
           style={styles.searchBar}
         />
         <CarouselView />
-        <Text style={styles.title}>EVENTS</Text>
-        <ImageCards />
+        <Cards />
         <View style={styles.marginbottom}></View>
       </ScrollView>
     </ImageBackground>
@@ -82,7 +54,6 @@ export default function EventsScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 70,
     marginHorizontal: 20,
   },
   background: {
@@ -90,18 +61,17 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   searchBar: {
-    marginTop: 10,
     marginBottom: 20,
   },
   title: {
     color: "#FFC42B",
-    fontSize: 25,
+    fontSize: 30,
     fontWeight: "700",
     marginBottom: 20,
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     marginVertical: 20,
   },
   button: {
@@ -125,9 +95,6 @@ const styles = StyleSheet.create({
   activeButtonText: {
     color: "black", // Color for active button text
   },
-  screenContainer: {
-    flex: 1,
-    // Other styles for your screen container
-  },
-  marginbottom: { marginBottom: 80 },
+
+  marginbottom: { marginBottom: 140 },
 });

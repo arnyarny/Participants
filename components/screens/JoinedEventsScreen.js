@@ -74,6 +74,10 @@ const JoinedEventsScreen = () => {
     },
   ];
 
+  const handleFeedbackPress = () => {
+    navigation.navigate("Feedback"); // Replace with the actual screen name
+  };
+
   return (
     <ImageBackground style={styles.background}>
       <View style={styles.screenContainer}>
@@ -125,7 +129,10 @@ const JoinedEventsScreen = () => {
                 onLeave={handleLeaveEvent}
                 onCancel={handleCancel}
               />
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                onPress={handleFeedbackPress}
+                style={styles.button}
+              >
                 <Text style={styles.buttonText}>FEEDBACK</Text>
               </TouchableOpacity>
             </View>

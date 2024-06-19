@@ -1,5 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 // COMMENT:
 // Mao ni tung sa EventScreen na naay mga clickable event types
@@ -14,15 +15,39 @@ const images = [
 ];
 
 const ImageCards = () => {
+  const navigation = useNavigation();
+
+  const handleCardPress = (screenName, params) => {
+    navigation.navigate(screenName, params); // Navigate to the specified screen
+  };
+
   return (
     <View style={styles.container}>
       {images.map((image, index) => (
-        <TouchableOpacity key={index} style={styles.card}>
+        <TouchableOpacity
+          key={index}
+          style={styles.card}
+          onPress={() => handleCardPress(getEventType(index), { id: index })}
+        >
           <Image source={image} style={styles.image} />
         </TouchableOpacity>
       ))}
     </View>
   );
+};
+
+const getEventType = (index) => {
+  // Logic to determine the event type based on the index
+  // You can customize this based on your data
+  const eventTypes = [
+    "Birthday",
+    "Summit",
+    "Reunion",
+    "Concert",
+    "Festival",
+    "Wedding",
+  ];
+  return eventTypes[index];
 };
 
 const styles = StyleSheet.create({

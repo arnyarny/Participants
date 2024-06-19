@@ -6,12 +6,16 @@ import {
   Button,
   ScrollView,
   Image,
-  TextInput,
+  ImageBackground,
   TouchableOpacity,
+  onChangeSearch,
+  searchQuery,
 } from "react-native";
 import CustomHeader from "../elements/CustomHeader";
+import { Searchbar } from "react-native-paper";
 
 export default function HomeScreen({ navigation }) {
+  const colors = ["#FF6961", "#AEC6CF", "#FDFD96", "#77DD77"];
   return (
     <ImageBackground style={styles.background}>
       <View style={styles.screenContainer}>
@@ -34,13 +38,12 @@ export default function HomeScreen({ navigation }) {
           </View>
           <Text style={styles.locationText}>Cagayan de Oro</Text>
         </View>
-        <View style={styles.searchBarContainer}>
-          <TextInput
-            style={styles.searchBar}
-            placeholder="Find amazing events"
-            placeholderTextColor="#999"
-          />
-        </View>
+        <Searchbar
+          placeholder="Search Events"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+          style={styles.searchBar}
+        />
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Popular Events</Text>
           <TouchableOpacity>
@@ -51,10 +54,7 @@ export default function HomeScreen({ navigation }) {
           {events.map((event, index) => (
             <View key={index} style={styles.eventCard}>
               <View style={styles.eventImageContainer}>
-                <Image
-                  source={{ uri: event.image }}
-                  style={styles.eventImage}
-                />
+                <Image source={event.image} style={styles.eventImage} />
                 <TouchableOpacity style={styles.addEventButton}>
                   <Text style={styles.addEventButtonText}>+</Text>
                 </TouchableOpacity>
@@ -69,7 +69,13 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.sectionTitle}>Choose Event</Text>
           <View style={styles.eventTypes}>
             {eventTypes.map((type, index) => (
-              <TouchableOpacity key={index} style={styles.eventTypeButton}>
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.eventTypeButton,
+                  { backgroundColor: colors[index % colors.length] },
+                ]}
+              >
                 <Text style={styles.eventTypeButtonText}>{type}</Text>
               </TouchableOpacity>
             ))}
@@ -77,7 +83,7 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View style={styles.featuredEventCard}>
           <Image
-            source={{ uri: featuredEvent.image }}
+            source={featuredEvent.image}
             style={styles.featuredEventImage}
           />
           <View style={styles.featuredEventInfo}>
@@ -88,37 +94,39 @@ export default function HomeScreen({ navigation }) {
             </Text>
           </View>
         </View>
+        <View style={styles.margintop}></View>
       </ScrollView>
     </ImageBackground>
   );
 }
+
 const events = [
   {
-    image: "https://link-to-image.com/image1.jpg",
+    image: require("../pictures/wedding.jpg"),
     title: "Mr. & Mrs. Malik Wedding",
     date: "23 Sept, 23",
     location: "Cagayan de Oro City",
   },
   {
-    image: "https://link-to-image.com/image2.jpg",
+    image: require("../pictures/bday.jpg"),
     title: "Barbella's Birthday",
     date: "12 August, 23",
     location: "Cagayan de Oro City",
   },
   {
-    image: "https://link-to-image.com/image3.jpg",
+    image: require("../pictures/reunion.jpg"),
     title: "Class of 1979 Reunion",
     date: "25-27 July, 23",
     location: "Cagayan de Oro City",
   },
   {
-    image: "https://link-to-image.com/image4.jpg",
+    image: require("../pictures/debut.jpg"),
     title: "Barbella's Debut",
     date: "23 Sept, 25",
     location: "Cagayan de Oro City",
   },
   {
-    image: "https://link-to-image.com/image5.jpg",
+    image: require("../pictures/kids.png"),
     title: "Kids Party",
     date: "12 August, 24",
     location: "Cagayan de Oro City",
@@ -128,7 +136,7 @@ const events = [
 const eventTypes = ["Wedding", "Birthday", "Reunion", "Debut"];
 
 const featuredEvent = {
-  image: "https://link-to-image.com/image6.jpg",
+  image: require("../pictures/pageant.jpeg"),
   title: "Mr. & Mrs. Ambot Lang 2024",
   date: "25 July, 24",
   location: "Luxxe Hotel",
@@ -136,9 +144,12 @@ const featuredEvent = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#f0f0f0",
-    padding: 20,
+    marginTop: 90,
+    marginHorizontal: 20,
+  },
+  background: {
+    backgroundColor: "black",
+    flexGrow: 1,
   },
   header: {
     flexDirection: "row",
@@ -164,12 +175,12 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 16,
-    color: "#333",
+    color: "white",
   },
   nameText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "white",
   },
   locationText: {
     fontSize: 14,
@@ -180,9 +191,9 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     backgroundColor: "#fff",
-    borderRadius: 10,
-    padding: 10,
+    borderRadius: 30,
     fontSize: 16,
+    marginBottom: 20,
   },
   sectionHeader: {
     flexDirection: "row",
@@ -193,7 +204,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "white",
   },
   viewAllText: {
     fontSize: 14,
@@ -207,17 +218,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 10,
     padding: 10,
+    paddingBottom: 30,
     marginRight: 10,
     alignItems: "center",
     width: 200,
   },
   eventImageContainer: {
     position: "relative",
+    width: "100%",
   },
   eventImage: {
     width: "100%",
     height: 100,
     borderRadius: 10,
+    marginBottom: 10,
   },
   addEventButton: {
     position: "absolute",
@@ -225,8 +239,8 @@ const styles = StyleSheet.create({
     right: 5,
     backgroundColor: "#FFC700",
     borderRadius: 50,
-    width: 25,
-    height: 25,
+    width: 30,
+    height: 30,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -235,16 +249,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   eventTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "bold",
     color: "#333",
+    marginTop: 5,
   },
   eventDate: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#555",
   },
   eventLocation: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#555",
   },
   chooseEventSection: {
@@ -296,4 +311,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#555",
   },
+  screenContainer: {
+    flex: 1,
+    // Other styles for your screen container
+  },
+  margintop: { marginTop: 160 },
 });

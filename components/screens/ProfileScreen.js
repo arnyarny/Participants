@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   profileContainer: {
-    backgroundColor: "#FFC700",
+    backgroundColor: "white",
     padding: 20,
     borderRadius: 10,
     alignItems: "center",

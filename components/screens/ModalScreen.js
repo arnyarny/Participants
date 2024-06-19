@@ -15,6 +15,7 @@ const DeleteLeaveModal = ({ visible, onLeave, onCancel }) => {
       visible={visible}
       onRequestClose={onCancel}
     >
+      <View style={styles.blurOverlay} />
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Do you want to leave the event?</Text>
@@ -23,7 +24,7 @@ const DeleteLeaveModal = ({ visible, onLeave, onCancel }) => {
               style={{ ...styles.openButton, backgroundColor: "red" }}
               onPress={onLeave}
             >
-              <Text style={styles.textStyle}>Leave Event</Text>
+              <Text style={styles.textStyle2}>Leave Event</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: "white" }}
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "black",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
     borderRadius: 10,
     padding: 35,
     alignItems: "center",
@@ -77,10 +78,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  textStyle2: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   modalText: {
     marginBottom: 15,
     textAlign: "center",
     color: "white",
+  },
+  blurOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust the overlay color and opacity
   },
 });
 
