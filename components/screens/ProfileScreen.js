@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import CustomHeader from "../elements/CustomHeader";
+import Scrollview from "../elements/ScrollViewScreens";
 
 const ProfileScreen = ({ navigation }) => {
   return (
@@ -39,24 +40,7 @@ const ProfileScreen = ({ navigation }) => {
           </View>
         </View>
         <Text style={styles.popularEventsTitle}>Popular Events</Text>
-        <ScrollView horizontal style={styles.eventsContainer}>
-          {events.map((event, index) => (
-            <View key={index} style={styles.eventCard}>
-              <View style={styles.eventImageContainer}>
-                <Image
-                  source={{ uri: event.image }}
-                  style={styles.eventImage}
-                />
-                <TouchableOpacity style={styles.addEventButton}>
-                  <Text style={styles.addEventButtonText}>+</Text>
-                </TouchableOpacity>
-              </View>
-              <Text style={styles.eventTitle}>{event.title}</Text>
-              <Text style={styles.eventDate}>{event.date}</Text>
-              <Text style={styles.eventLocation}>{event.location}</Text>
-            </View>
-          ))}
-        </ScrollView>
+        <Scrollview />
       </ScrollView>
     </ImageBackground>
   );

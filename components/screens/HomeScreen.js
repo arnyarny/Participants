@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import CustomHeader from "../elements/CustomHeader";
 import { Searchbar } from "react-native-paper";
+import Scrollview from "../elements/ScrollViewScreens";
 
 export default function HomeScreen({ navigation }) {
   const colors = ["#FF6961", "#AEC6CF", "#FDFD96", "#77DD77"];
@@ -50,7 +51,8 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.viewAllText}>VIEW ALL</Text>
           </TouchableOpacity>
         </View>
-        <ScrollView horizontal style={styles.eventsContainer}>
+        <Scrollview/>
+        {/* <ScrollView horizontal style={styles.eventsContainer}>
           {events.map((event, index) => (
             <View key={index} style={styles.eventCard}>
               <View style={styles.eventImageContainer}>
@@ -64,7 +66,7 @@ export default function HomeScreen({ navigation }) {
               <Text style={styles.eventLocation}>{event.location}</Text>
             </View>
           ))}
-        </ScrollView>
+        </ScrollView> */}
         <View style={styles.chooseEventSection}>
           <Text style={styles.sectionTitle}>Choose Event</Text>
           <View style={styles.eventTypes}>
@@ -100,38 +102,38 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
-const events = [
-  {
-    image: require("../pictures/wedding.jpg"),
-    title: "Mr. & Mrs. Malik Wedding",
-    date: "23 Sept, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: require("../pictures/bday.jpg"),
-    title: "Barbella's Birthday",
-    date: "12 August, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: require("../pictures/reunion.jpg"),
-    title: "Class of 1979 Reunion",
-    date: "25-27 July, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: require("../pictures/debut.jpg"),
-    title: "Barbella's Debut",
-    date: "23 Sept, 25",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: require("../pictures/kids.png"),
-    title: "Kids Party",
-    date: "12 August, 24",
-    location: "Cagayan de Oro City",
-  },
-];
+// const events = [
+//   {
+//     image: require("../pictures/wedding.jpg"),
+//     title: "Mr. & Mrs. Malik Wedding",
+//     date: "23 Sept, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: require("../pictures/bday.jpg"),
+//     title: "Barbella's Birthday",
+//     date: "12 August, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: require("../pictures/reunion.jpg"),
+//     title: "Class of 1979 Reunion",
+//     date: "25-27 July, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: require("../pictures/debut.jpg"),
+//     title: "Barbella's Debut",
+//     date: "23 Sept, 25",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: require("../pictures/kids.png"),
+//     title: "Kids Party",
+//     date: "12 August, 24",
+//     location: "Cagayan de Oro City",
+//   },
+// ];
 
 const eventTypes = ["Wedding", "Birthday", "Reunion", "Debut"];
 
