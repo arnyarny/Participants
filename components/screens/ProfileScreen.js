@@ -14,7 +14,10 @@ import Scrollview from "../elements/ScrollViewScreens";
 
 const ProfileScreen = ({ navigation }) => {
   return (
-    <ImageBackground style={styles.background}>
+    <ImageBackground
+      source={require("../pictures/Wallpaper.png")}
+      style={styles.background}
+    >
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.profileContainer}>
           <View style={styles.photoContainer}>
@@ -46,38 +49,38 @@ const ProfileScreen = ({ navigation }) => {
   );
 };
 
-const events = [
-  {
-    image: "https://link-to-image.com/image1.jpg",
-    title: "Mr. & Mrs. Malik Wedding",
-    date: "23 Sept, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: "https://link-to-image.com/image2.jpg",
-    title: "Barbella's Birthday",
-    date: "12 August, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: "https://link-to-image.com/image3.jpg",
-    title: "Class of 1979 Reunion",
-    date: "25-27 July, 23",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: "https://link-to-image.com/image4.jpg",
-    title: "Barbella's Debut",
-    date: "23 Sept, 25",
-    location: "Cagayan de Oro City",
-  },
-  {
-    image: "https://link-to-image.com/image5.jpg",
-    title: "Kids Party",
-    date: "12 August, 24",
-    location: "Cagayan de Oro City",
-  },
-];
+// const events = [
+//   {
+//     image: "https://link-to-image.com/image1.jpg",
+//     title: "Mr. & Mrs. Malik Wedding",
+//     date: "23 Sept, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: "https://link-to-image.com/image2.jpg",
+//     title: "Barbella's Birthday",
+//     date: "12 August, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: "https://link-to-image.com/image3.jpg",
+//     title: "Class of 1979 Reunion",
+//     date: "25-27 July, 23",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: "https://link-to-image.com/image4.jpg",
+//     title: "Barbella's Debut",
+//     date: "23 Sept, 25",
+//     location: "Cagayan de Oro City",
+//   },
+//   {
+//     image: "https://link-to-image.com/image5.jpg",
+//     title: "Kids Party",
+//     date: "12 August, 24",
+//     location: "Cagayan de Oro City",
+//   },
+// ];
 
 const styles = StyleSheet.create({
   container: {
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   profileContainer: {
-    backgroundColor: "white",
+    backgroundColor: "rgba(35,32,0, 0.3)",
     padding: 20,
     borderRadius: 10,
     alignItems: "center",
@@ -112,19 +115,22 @@ const styles = StyleSheet.create({
   serviceProviderName: {
     fontSize: 18,
     fontWeight: "bold",
+    color: "white",
   },
   address: {
     fontSize: 16,
     marginVertical: 10,
+    color: "white",
   },
   timeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
     marginVertical: 10,
+    color: "white",
   },
   timeText: {
-    color: "#000000",
+    color: "white",
   },
   buttonContainer: {
     flexDirection: "row",
