@@ -31,11 +31,6 @@ const DropdownMenu = ({ onClose }) => {
     navigation.navigate("Event Portfolio"); // Adjust route name as necessary
   };
 
-  const handleSettingsPress = () => {
-    onClose();
-    navigation.navigate("Settings"); // Adjust route name as necessary
-  };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.option} onPress={handleProfilePress}>
@@ -60,10 +55,6 @@ const DropdownMenu = ({ onClose }) => {
       >
         <Icon name="work" size={24} color="#000" style={styles.icon} />
         <Text style={styles.text}>Event Portfolio</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.option} onPress={handleSettingsPress}>
-        <Icon name="settings" size={24} color="#000" style={styles.icon} />
-        <Text style={styles.text}>Settings</Text>
       </TouchableOpacity>
     </View>
   );

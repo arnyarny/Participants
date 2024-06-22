@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginVertical: 20,
+    marginTop: 40,
+    marginBottom: 20,
   },
   button: {
     paddingVertical: 10,

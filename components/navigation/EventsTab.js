@@ -11,6 +11,10 @@ import FestivalScreen from "../screens/FestivalScreen";
 import WeddingScreen from "../screens/WeddingScreen";
 import SelectedEventsScreen from "../screens/SelectedEventScreen";
 import FeedbackScreen from "../screens/FeedbackScreen";
+import BookEventScreen from "../screens/BookEventScreen";
+import EventDetails from "../screens/EventDetails";
+import Feedback from "../screens/Feedback";
+import CopyLinkScreen from "../screens/CopyLinkScreen";
 
 const Stack = createStackNavigator();
 
@@ -36,9 +40,12 @@ export default function EventsTab({ navigation }) {
 
       {/* selected event screen */}
       <Stack.Screen name="SelectedEvent" component={SelectedEventsScreen} />
+      <Stack.Screen name="BookEvent" component={BookEventScreen} />
+      <Stack.Screen name="EventDetails" component={EventDetails} />
+      <Stack.Screen name="CopyLink" component={CopyLinkScreen} />
 
       {/* Feedback screen */}
-      <Stack.Screen name="Feedback" component={FeedbackScreen} />
+      <Stack.Screen name="Feedback" component={Feedback} />
     </Stack.Navigator>
   );
 }

@@ -13,7 +13,8 @@ import NotificationsScreen from "../screens/NotificationsScreen";
 import Budget from "../screens/Budget";
 import EventPortfolio from "../screens/EventPortfolioScreen";
 import EventDetails from "../screens/EventDetails";
-import Settings from "../screens/Settings";
+import SelectContactViewScreen from "../screens/SelectedContactViewScreen";
+import ConversationViewScreen from "../screens/ConversationViewScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -100,7 +101,14 @@ export default function MainNavigation() {
         <RootStack.Screen name="Event Details" component={EventDetails} />
         <RootStack.Screen name="Budget" component={Budget} />
         <RootStack.Screen name="Event Portfolio" component={EventPortfolio} />
-        <RootStack.Screen name="Settings" component={Settings} />
+        <RootStack.Screen
+          name="SelectContactView"
+          component={SelectContactViewScreen}
+        />
+        <RootStack.Screen
+          name="ConversationView"
+          component={ConversationViewScreen}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );

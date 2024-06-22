@@ -17,6 +17,14 @@ const SelectedEventScreen = ({ route }) => {
   const { name, date, image } = route.params;
   const navigation = useNavigation();
 
+  const handleJoinPress = () => {
+    navigation.navigate("BookEvent");
+  };
+
+  const handleCopyLinkPress = () => {
+    navigation.navigate("CopyLink");
+  };
+
   return (
     <ImageBackground style={styles.background}>
       <CustomHeader
@@ -26,10 +34,13 @@ const SelectedEventScreen = ({ route }) => {
       <ScrollView contentContainerStyle={styles.container}>
         <Image source={image} style={styles.image} />
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleJoinPress} style={styles.button}>
             <Text style={styles.buttonText}>Join Event</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button2}>
+          <TouchableOpacity
+            onPress={handleCopyLinkPress}
+            style={styles.button2}
+          >
             <Text style={styles.buttonText}>Copy event link</Text>
           </TouchableOpacity>
         </View>
